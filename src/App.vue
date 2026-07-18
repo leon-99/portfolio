@@ -17,8 +17,8 @@ import SiteFooter from '@/components/SiteFooter.vue'
     <main>
       <Hero />
       <About />
-      <Experience />
       <Projects />
+      <Experience />
       <Skills />
       <Contact />
     </main>

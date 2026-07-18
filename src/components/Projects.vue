@@ -27,7 +27,7 @@ const categoryLabel: Record<ProjectCategory, string> = {
 }
 
 const packageLabel: Record<PackageType, string> = {
-  npm: 'NPM',
+  npm: '',
   laravel: 'Laravel',
 }
 
@@ -46,6 +46,16 @@ function typeLabel(project: Project): string {
   return packageLabel[project.packageType ?? 'npm']
 }
 
+function showTypeLabel(project: Project): boolean {
+  if (project.category === 'websites') return true
+  return project.packageType === 'laravel'
+}
+
+function typeAriaLabel(project: Project): string | undefined {
+  if (project.category !== 'packages') return undefined
+  return project.packageType === 'laravel' ? 'Laravel package' : 'npm package'
+}
+
 function isNpmLink(project: Project): boolean {
   return Boolean(project.liveUrl?.includes('npmjs.com'))
 }
@@ -55,7 +65,7 @@ function isNpmLink(project: Project): boolean {
   <section id="projects" class="projects section section-alt">
     <div class="container">
       <SectionHeader
-        index="03"
+        index="02"
         title="Projects"
         description="Selected work across npm packages, Laravel packages, and production web apps."
       />
@@ -84,14 +94,19 @@ function isNpmLink(project: Project): boolean {
           <div class="project-main">
             <div class="project-head">
               <h3>{{ project.title }}</h3>
-              <span class="project-type" :data-type="projectType(project)">
+              <span
+                class="project-type"
+                :class="{ 'project-type--icon-only': project.category === 'packages' && project.packageType !== 'laravel' }"
+                :data-type="projectType(project)"
+                :aria-label="typeAriaLabel(project)"
+              >
                 <Icon
                   v-if="project.category === 'packages'"
                   :icon="packageIcon[project.packageType ?? 'npm']"
                   class="project-type-icon"
                   aria-hidden="true"
                 />
-                {{ typeLabel(project) }}
+                <template v-if="showTypeLabel(project)">{{ typeLabel(project) }}</template>
               </span>
             </div>
             <p class="project-desc">{{ project.description }}</p>

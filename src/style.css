@@ -104,7 +104,7 @@ button {
   position: absolute;
   border-radius: 50%;
   filter: blur(80px);
-  opacity: 0.72;
+  opacity: 0.7;
 }
 
 .orb-a {
@@ -112,7 +112,7 @@ button {
   height: 42vw;
   top: -12vw;
   left: -8vw;
-  background: radial-gradient(circle, rgba(74, 222, 128, 0.38), transparent 68%);
+  background: radial-gradient(circle, rgba(74, 222, 128, 0.36), transparent 68%);
 }
 
 .orb-b {
@@ -120,7 +120,7 @@ button {
   height: 36vw;
   top: 18vh;
   right: -10vw;
-  background: radial-gradient(circle, rgba(124, 184, 255, 0.28), transparent 68%);
+  background: radial-gradient(circle, rgba(124, 184, 255, 0.26), transparent 68%);
 }
 
 .page-backdrop :deep(.dot-field) {
@@ -812,6 +812,10 @@ button {
   width: 1.35rem;
   height: 1.35rem;
   flex-shrink: 0;
+}
+
+.project-type--icon-only {
+  padding: 0.2rem 0.35rem;
 }
 
 .project-type[data-type='packages'],

@@ -7,7 +7,7 @@ import { education, experiences } from '@/data/portfolio'
   <section id="experience" class="experience section">
     <div class="container">
       <SectionHeader
-        index="02"
+        index="03"
         title="Experience"
         description="Roles where I shipped backend systems, frontend products, and team workflows."
       />

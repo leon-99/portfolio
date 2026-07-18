@@ -127,6 +127,18 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: 'leaseguard',
+    title: 'Leaseguard',
+    description:
+      'Production-grade distributed locking for Node.js — Redis-backed ownership, automatic renewal, retries, and lock-loss detection for workers, cron jobs, and queue consumers.',
+    category: 'packages',
+    packageType: 'npm',
+    featured: true,
+    technologies: ['Node.js', 'TypeScript', 'Redis', 'Distributed Locking', 'ioredis'],
+    liveUrl: 'https://www.npmjs.com/package/leaseguard',
+    liveLabel: 'Package',
+  },
+  {
     id: 'postmock',
     title: 'PostMock',
     description:
@@ -136,7 +148,7 @@ export const projects: Project[] = [
     featured: true,
     technologies: ['Node.js', 'JavaScript', 'CLI', 'Mock API', 'Postman', 'OpenAPI', 'Express'],
     liveUrl: 'https://www.npmjs.com/package/postmock',
-    liveLabel: 'NPM Package',
+    liveLabel: 'Package',
   },
   {
     id: 'plato-vue',
@@ -147,7 +159,7 @@ export const projects: Project[] = [
     featured: true,
     technologies: ['Node.js', 'JavaScript', 'CLI', 'Code Analysis', 'Vue.js'],
     liveUrl: 'https://www.npmjs.com/package/plato-vue',
-    liveLabel: 'NPM Package',
+    liveLabel: 'Package',
   },
   {
     id: 'solar-system',
@@ -168,7 +180,7 @@ export const projects: Project[] = [
     featured: false,
     technologies: ['Node.js', 'JavaScript', 'CLI', 'OpenAPI'],
     liveUrl: 'https://www.npmjs.com/package/oasify-postman',
-    liveLabel: 'NPM Package',
+    liveLabel: 'Package',
   },
   {
     id: 'laravel-entity-generator',
@@ -225,8 +237,8 @@ export const skillCategories = [
 export const navLinks = [
   { href: '#home', label: 'Home' },
   { href: '#about', label: 'About' },
-  { href: '#experience', label: 'Experience' },
   { href: '#projects', label: 'Projects' },
+  { href: '#experience', label: 'Experience' },
   { href: '#skills', label: 'Skills' },
   { href: '#contact', label: 'Contact' },
 ]
