@@ -4,8 +4,6 @@ import { profile } from '@/data/portfolio'
 
 <template>
   <section id="home" class="hero section">
-    <div class="hero-glow" aria-hidden="true" />
-
     <div class="container hero-grid">
       <div class="hero-copy">
         <p class="hero-kicker">
