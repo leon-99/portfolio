@@ -287,21 +287,13 @@ button {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
+  grid-template-columns: 1fr;
   gap: 1.75rem;
   align-items: center;
 }
 
 .hero-copy {
   max-width: 42rem;
-}
-
-.hero-card-area {
-  width: 100%;
-  max-width: 380px;
-  height: min(68svh, 420px);
-  margin-inline: auto;
-  align-self: center;
 }
 
 .hero-kicker {
@@ -1061,10 +1053,6 @@ button {
 }
 
 @media (max-width: 768px) {
-  .hero-card-area {
-    display: none;
-  }
-
   .project-row {
     grid-template-columns: 1fr;
     gap: 0.85rem;
