@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
+import { Icon } from '@iconify/vue'
 import SectionHeader from '@/components/SectionHeader.vue'
-import { projects, type ProjectCategory } from '@/data/portfolio'
+import { projects, type PackageType, type Project, type ProjectCategory } from '@/data/portfolio'
 
 type Filter = 'featured' | ProjectCategory
 
@@ -19,6 +20,35 @@ const filteredProjects = computed(() => {
   }
   return projects.filter((project) => project.category === activeFilter.value)
 })
+
+const categoryLabel: Record<ProjectCategory, string> = {
+  websites: 'Website',
+  packages: 'Package',
+}
+
+const packageLabel: Record<PackageType, string> = {
+  npm: 'NPM',
+  laravel: 'Laravel',
+}
+
+const packageIcon: Record<PackageType, string> = {
+  npm: 'logos:npm',
+  laravel: 'logos:laravel',
+}
+
+function projectType(project: Project): ProjectCategory | PackageType {
+  if (project.category === 'websites') return 'websites'
+  return project.packageType ?? 'npm'
+}
+
+function typeLabel(project: Project): string {
+  if (project.category === 'websites') return categoryLabel.websites
+  return packageLabel[project.packageType ?? 'npm']
+}
+
+function isNpmLink(project: Project): boolean {
+  return Boolean(project.liveUrl?.includes('npmjs.com'))
+}
 </script>
 
 <template>
@@ -27,57 +57,62 @@ const filteredProjects = computed(() => {
       <SectionHeader
         index="03"
         title="Projects"
-        description="Selected work across npm packages and production web apps."
+        description="Selected work across npm packages, Laravel packages, and production web apps."
       />
 
-      <div class="filter-row">
+      <div class="project-filters" role="tablist" aria-label="Project filters">
         <button
           v-for="filter in filters"
           :key="filter.id"
           type="button"
-          class="filter-btn"
+          role="tab"
+          class="filter-tab"
           :class="{ active: activeFilter === filter.id }"
+          :aria-selected="activeFilter === filter.id"
           @click="activeFilter = filter.id"
         >
           {{ filter.label }}
         </button>
       </div>
 
-      <div class="projects-grid">
+      <div class="project-list section-card">
         <article
           v-for="project in filteredProjects"
           :key="project.id"
-          class="project-card section-card"
-          :class="`tone-${project.category}`"
+          class="project-row"
         >
-          <div class="project-top">
-            <div>
-              <span class="project-category">{{ project.category }}</span>
+          <div class="project-main">
+            <div class="project-head">
               <h3>{{ project.title }}</h3>
+              <span class="project-type" :data-type="projectType(project)">
+                <Icon
+                  v-if="project.category === 'packages'"
+                  :icon="packageIcon[project.packageType ?? 'npm']"
+                  class="project-type-icon"
+                  aria-hidden="true"
+                />
+                {{ typeLabel(project) }}
+              </span>
             </div>
-            <span class="project-arrow" aria-hidden="true">↗</span>
+            <p class="project-desc">{{ project.description }}</p>
+            <p class="project-tech">{{ project.technologies.join(' · ') }}</p>
           </div>
 
-          <p>{{ project.description }}</p>
-
-          <div class="tag-list">
-            <span v-for="tech in project.technologies.slice(0, 4)" :key="tech" class="tag muted">
-              {{ tech }}
-            </span>
-            <span v-if="project.technologies.length > 4" class="tag muted">
-              +{{ project.technologies.length - 4 }}
-            </span>
-          </div>
-
-          <div class="project-actions">
+          <div v-if="project.liveUrl || project.codeUrl" class="project-links">
             <a
               v-if="project.liveUrl"
               :href="project.liveUrl"
               target="_blank"
               rel="noopener noreferrer"
-              class="text-link"
+              class="text-link project-link"
             >
-              {{ project.liveLabel ?? 'Live' }}
+              <Icon
+                v-if="isNpmLink(project)"
+                icon="logos:npm"
+                class="project-link-icon"
+                aria-hidden="true"
+              />
+              {{ project.liveLabel ?? 'Live' }} ↗
             </a>
             <a
               v-if="project.codeUrl"
@@ -86,7 +121,7 @@ const filteredProjects = computed(() => {
               rel="noopener noreferrer"
               class="text-link"
             >
-              {{ project.codeLabel ?? 'Code' }}
+              {{ project.codeLabel ?? 'Code' }} ↗
             </a>
           </div>
         </article>

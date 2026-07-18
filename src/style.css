@@ -728,49 +728,181 @@ button {
   color: var(--text-muted);
 }
 
-.filter-row {
+.project-filters {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.55rem;
-  margin-bottom: 1.35rem;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border);
 }
 
-.filter-btn {
-  padding: 0.48rem 0.85rem;
-  border-radius: 999px;
-  border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.02);
+.filter-tab {
+  padding: 0.65rem 0;
+  margin-bottom: -1px;
+  border: none;
+  border-bottom: 2px solid transparent;
+  background: none;
   color: var(--text-muted);
+  font: inherit;
+  font-size: 0.92rem;
+  font-weight: 500;
+  transition:
+    color 0.15s ease,
+    border-color 0.15s ease;
 }
 
-.filter-btn.active {
+.filter-tab:hover {
+  color: var(--text);
+}
+
+.filter-tab.active {
+  color: var(--text);
+  border-bottom-color: var(--accent);
+}
+
+.project-list {
+  padding: 0;
+  overflow: hidden;
+}
+
+.project-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1.5rem;
+  align-items: start;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.15s ease;
+}
+
+.project-row:last-child {
+  border-bottom: none;
+}
+
+.project-row:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.project-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.65rem;
+  margin-bottom: 0.35rem;
+}
+
+.project-head h3 {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+}
+
+.project-type {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 0.12rem 0.45rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text-faint);
+}
+
+.project-type-icon {
+  width: 1.35rem;
+  height: 1.35rem;
+  flex-shrink: 0;
+}
+
+.project-type[data-type='packages'],
+.project-type[data-type='npm'] {
+  color: #cb3837;
+  border-color: rgba(203, 56, 55, 0.35);
+}
+
+.project-type[data-type='laravel'] {
+  color: #ff2d20;
+  border-color: rgba(255, 45, 32, 0.35);
+}
+
+.project-type[data-type='websites'] {
   color: var(--accent);
-  border-color: rgba(74, 222, 128, 0.35);
-  background: var(--accent-soft);
+  border-color: rgba(74, 222, 128, 0.22);
 }
 
-.projects-grid,
-.skills-grid,
+.project-desc {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  margin-bottom: 0.45rem;
+}
+
+.project-tech {
+  color: var(--text-faint);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.project-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.35rem;
+  padding-top: 0.15rem;
+  white-space: nowrap;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.project-link-icon {
+  width: 1.1rem;
+  height: 1.1rem;
+  flex-shrink: 0;
+}
+
+.skills-panel {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  padding: 0;
+  overflow: hidden;
+}
+
+.skill-group {
+  padding: 1.35rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+}
+
+.skill-group:nth-child(2n) {
+  border-right: none;
+}
+
+.skill-group:nth-last-child(-n + 2) {
+  border-bottom: none;
+}
+
+.skill-group h3 {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  margin-bottom: 0.65rem;
+}
+
+.skill-items {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
 .contact-grid {
   display: grid;
   gap: 1rem;
-}
-
-.projects-grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.skills-grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.contact-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   margin-bottom: 1rem;
 }
 
-.project-card,
-.skills-card,
 .contact-card {
   padding: 1.25rem;
   transition:
@@ -778,82 +910,20 @@ button {
     background 0.15s ease;
 }
 
-.project-card:hover,
 .contact-card:hover {
   border-color: var(--border-strong);
   background: linear-gradient(180deg, rgba(28, 38, 32, 0.95) 0%, rgba(18, 26, 22, 0.98) 100%);
 }
 
-.project-card.tone-packages {
-  border-top: 3px solid rgba(124, 184, 255, 0.65);
-}
-
-.project-card.tone-websites {
-  border-top: 3px solid rgba(74, 222, 128, 0.65);
-}
-
-.skills-card.tone-mint {
-  border-top: 3px solid rgba(74, 222, 128, 0.55);
-}
-
-.skills-card.tone-sky {
-  border-top: 3px solid rgba(124, 184, 255, 0.55);
-}
-
-.skills-card.tone-amber {
-  border-top: 3px solid rgba(240, 179, 90, 0.55);
-}
-
-.skills-card.tone-rose {
-  border-top: 3px solid rgba(240, 138, 168, 0.55);
-}
-
-.project-top {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 0.75rem;
-}
-
-.project-category {
-  display: inline-block;
-  margin-bottom: 0.35rem;
-  color: var(--text-faint);
-  font-size: 0.76rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-
-.project-top h3 {
-  font-family: var(--font-display);
-  font-size: 1.08rem;
-}
-
-.project-arrow {
-  color: var(--text-faint);
-  font-size: 1.1rem;
-}
-
-.project-card p,
 .contact-card p {
   color: var(--text-muted);
   margin: 0.5rem 0 1rem;
-}
-
-.project-actions {
-  display: flex;
-  gap: 1rem;
 }
 
 .text-link {
   color: var(--sky);
   font-weight: 600;
   font-size: 0.9rem;
-}
-
-.skills-card h3 {
-  font-family: var(--font-display);
-  margin-bottom: 0.85rem;
 }
 
 .contact-card {
@@ -942,11 +1012,25 @@ button {
 @media (max-width: 900px) {
   .hero-grid,
   .about-grid,
-  .projects-grid,
-  .skills-grid,
   .contact-grid,
   .education-grid {
     grid-template-columns: 1fr;
+  }
+
+  .skills-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-group {
+    border-right: none;
+  }
+
+  .skill-group:nth-last-child(-n + 2) {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .skill-group:last-child {
+    border-bottom: none;
   }
 
   .objective-stats {
@@ -957,6 +1041,17 @@ button {
 @media (max-width: 768px) {
   .hero-card-area {
     display: none;
+  }
+
+  .project-row {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  .project-links {
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
   }
 
   .menu-toggle {

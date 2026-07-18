@@ -109,12 +109,14 @@ export const education = [
 ]
 
 export type ProjectCategory = 'websites' | 'packages'
+export type PackageType = 'npm' | 'laravel'
 
 export interface Project {
   id: string
   title: string
   description: string
   category: ProjectCategory
+  packageType?: PackageType
   featured: boolean
   technologies: string[]
   liveUrl?: string
@@ -130,6 +132,7 @@ export const projects: Project[] = [
     description:
       'Instant mock API server generator from Postman collections or OpenAPI specs.',
     category: 'packages',
+    packageType: 'npm',
     featured: true,
     technologies: ['Node.js', 'JavaScript', 'CLI', 'Mock API', 'Postman', 'OpenAPI', 'Express'],
     liveUrl: 'https://www.npmjs.com/package/postmock',
@@ -140,6 +143,7 @@ export const projects: Project[] = [
     title: 'Plato Vue',
     description: 'Vue.js maintainability analysis tool with CLI reporting.',
     category: 'packages',
+    packageType: 'npm',
     featured: true,
     technologies: ['Node.js', 'JavaScript', 'CLI', 'Code Analysis', 'Vue.js'],
     liveUrl: 'https://www.npmjs.com/package/plato-vue',
@@ -160,6 +164,7 @@ export const projects: Project[] = [
     title: 'Oasify Postman',
     description: 'Converts Postman collections to OpenAPI 3.0 with CLI support.',
     category: 'packages',
+    packageType: 'npm',
     featured: false,
     technologies: ['Node.js', 'JavaScript', 'CLI', 'OpenAPI'],
     liveUrl: 'https://www.npmjs.com/package/oasify-postman',
@@ -170,6 +175,7 @@ export const projects: Project[] = [
     title: 'Laravel Entity Generator',
     description: 'Generates CRUD operations in a service-based Laravel architecture.',
     category: 'packages',
+    packageType: 'laravel',
     featured: false,
     technologies: ['Laravel', 'PHP', 'CLI', 'CRUD'],
     codeUrl: 'https://github.com/leon-99/laravel-entity-generator',

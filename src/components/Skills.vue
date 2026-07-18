@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import SectionHeader from '@/components/SectionHeader.vue'
 import { skillCategories } from '@/data/portfolio'
-
-const tones = ['mint', 'sky', 'amber', 'rose']
 </script>
 
 <template>
@@ -14,20 +12,15 @@ const tones = ['mint', 'sky', 'amber', 'rose']
         description="Technologies I use to build and maintain production software."
       />
 
-      <div class="skills-grid">
-        <article
-          v-for="(category, index) in skillCategories"
+      <div class="skills-panel section-card">
+        <div
+          v-for="category in skillCategories"
           :key="category.title"
-          class="skills-card section-card"
-          :class="`tone-${tones[index % tones.length]}`"
+          class="skill-group"
         >
           <h3>{{ category.title }}</h3>
-          <div class="tag-list">
-            <span v-for="skill in category.skills" :key="skill" class="tag">
-              {{ skill }}
-            </span>
-          </div>
-        </article>
+          <p class="skill-items">{{ category.skills.join(' · ') }}</p>
+        </div>
       </div>
     </div>
   </section>
