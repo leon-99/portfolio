@@ -138,6 +138,10 @@ button {
   position: relative;
 }
 
+.section:not(.hero) {
+  padding: clamp(2.25rem, 4.5vw, 3.25rem) 0;
+}
+
 .section-alt {
   background: transparent;
   border-block: 1px solid rgba(132, 168, 146, 0.06);
@@ -148,7 +152,7 @@ button {
   grid-template-columns: auto 1fr;
   gap: 1.25rem 1.5rem;
   align-items: start;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
 }
 
 .section-index {
@@ -283,6 +287,12 @@ button {
 
 .hero {
   padding-top: clamp(3rem, 8vw, 5rem);
+}
+
+@media (min-width: 769px) {
+  .hero.section {
+    min-height: calc(100svh - 4.25rem);
+  }
 }
 
 .hero-grid {
