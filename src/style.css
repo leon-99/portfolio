@@ -298,9 +298,10 @@ button {
 
 .hero-card-area {
   width: 100%;
-  max-width: 360px;
-  min-height: min(68svh, 480px);
+  max-width: 380px;
+  height: min(68svh, 420px);
   margin-inline: auto;
+  align-self: center;
 }
 
 .hero-kicker {

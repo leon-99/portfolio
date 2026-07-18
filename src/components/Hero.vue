@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import HeroSkillGallery from '@/components/HeroSkillGallery.vue'
 import { profile } from '@/data/portfolio'
 </script>
 
@@ -25,7 +26,9 @@ import { profile } from '@/data/portfolio'
         </div>
       </div>
 
-      <div class="hero-card-area" aria-hidden="true" />
+      <div class="hero-card-area">
+        <HeroSkillGallery />
+      </div>
     </div>
   </section>
 </template>
