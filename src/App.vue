@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import PageBackdrop from '@/components/PageBackdrop.vue'
-import SiteNav from '@/components/SiteNav.vue'
+import SiteDock from '@/components/SiteDock.vue'
 import Hero from '@/components/Hero.vue'
 import About from '@/components/About.vue'
 import Experience from '@/components/Experience.vue'
@@ -13,7 +13,6 @@ import SiteFooter from '@/components/SiteFooter.vue'
 <template>
   <div class="app">
     <PageBackdrop />
-    <SiteNav />
     <main>
       <Hero />
       <About />
@@ -23,5 +22,6 @@ import SiteFooter from '@/components/SiteFooter.vue'
       <Contact />
     </main>
     <SiteFooter />
+    <SiteDock />
   </div>
 </template>
