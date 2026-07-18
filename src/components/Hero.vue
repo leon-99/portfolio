@@ -1,5 +1,15 @@
 <script setup lang="ts">
+import { Icon } from '@iconify/vue'
 import { profile } from '@/data/portfolio'
+
+const heroStack = [
+  { name: 'Node.js', icon: 'logos:nodejs' },
+  { name: 'NestJS', icon: 'logos:nestjs' },
+  { name: 'React', icon: 'logos:react' },
+  { name: 'Vue', icon: 'logos:vue' },
+  { name: 'Docker', icon: 'logos:docker-icon' },
+  { name: 'AWS', icon: 'logos:aws' },
+]
 </script>
 
 <template>
@@ -24,6 +34,13 @@ import { profile } from '@/data/portfolio'
           <a href="#contact" class="btn btn-secondary">Get in touch</a>
         </div>
       </div>
+
+      <ul class="hero-stack" aria-label="Primary technologies">
+        <li v-for="tech in heroStack" :key="tech.name">
+          <Icon :icon="tech.icon" class="hero-stack-icon" aria-hidden="true" />
+          <span>{{ tech.name }}</span>
+        </li>
+      </ul>
     </div>
   </section>
 </template>
