@@ -21,7 +21,7 @@ const checkMobile = () => {
   isMobile.value = window.innerWidth <= 768
 }
 
-const updateActiveSection = () => {
+const resolveActiveSection = () => {
   const sections = navLinks
     .map((link) => ({
       href: link.href,
@@ -29,7 +29,7 @@ const updateActiveSection = () => {
     }))
     .filter((entry): entry is { href: string; element: Element } => Boolean(entry.element))
 
-  if (!sections.length) return
+  if (!sections.length) return sections[0]?.href ?? navLinks[0]?.href ?? '#home'
 
   const scrollMarker = window.scrollY + window.innerHeight * 0.32
   let current = sections[0].href
@@ -48,17 +48,21 @@ const updateActiveSection = () => {
     current = sections[sections.length - 1].href
   }
 
-  activeSection.value = current
+  return current
+}
+
+const updateActiveSection = () => {
+  activeSection.value = resolveActiveSection()
 }
 
 const scrollToSection = (href: string) => {
-  activeSection.value = href
   const target = document.querySelector(href)
   target?.scrollIntoView({ behavior: 'smooth' })
 }
 
 const dockItems = computed<DockItemData[]>(() =>
   navLinks.map((link) => ({
+    id: link.href,
     icon: () =>
       h(Icon, {
         icon: navIcons[link.href],

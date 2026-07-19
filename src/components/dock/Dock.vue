@@ -10,7 +10,7 @@
     >
       <DockItem
         v-for="(item, index) in items"
-        :key="`${index}-${item.active ? 'active' : 'idle'}`"
+        :key="item.id ?? index"
         :onClick="item.onClick"
         :className="item.className"
         :mouseX="mouseX"
@@ -37,6 +37,7 @@ const AnimatePresenceComponent = AnimatePresence as unknown as ConcreteComponent
 export type SpringOptions = NonNullable<Parameters<typeof useSpring>[1]>;
 
 export type DockItemData = {
+  id?: string;
   icon: unknown;
   label: unknown;
   onClick: () => void;
@@ -245,6 +246,8 @@ const DockItem = defineComponent({
       justifyContent: 'center',
       cursor: 'pointer',
       outline: 'none',
+      transition:
+        'background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease',
       ...(isActive ? activeItemStyle : idleItemStyle)
     };
 
