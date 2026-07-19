@@ -401,8 +401,8 @@ onUnmounted(() => {
 
 .pc-card-wrapper:hover::before,
 .pc-card-wrapper.active::before {
-  filter: contrast(1) saturate(2) blur(40px) opacity(1);
-  transform: scale(0.9) translate3d(0, 0, 0.1px);
+  filter: contrast(1) saturate(2) blur(32px) opacity(0.95);
+  transform: scale(0.88) translate3d(0, 0, 0.1px);
 }
 
 .pc-card {
@@ -430,9 +430,9 @@ onUnmounted(() => {
     radial-gradient(
       farthest-side circle at var(--pointer-x) var(--pointer-y),
       hsla(120, 100%, 90%, var(--card-opacity)) 4%,
-      hsla(120, 50%, 80%, calc(var(--card-opacity) * 0.75)) 10%,
-      hsla(120, 25%, 70%, calc(var(--card-opacity) * 0.5)) 50%,
-      hsla(120, 0%, 60%, 0) 100%
+      hsla(120, 50%, 80%, calc(var(--card-opacity) * 0.75)) 9%,
+      hsla(120, 25%, 70%, calc(var(--card-opacity) * 0.5)) 22%,
+      hsla(120, 0%, 60%, 0) 38%
     ),
     radial-gradient(35% 52% at 55% 20%, #90EE90c4 0%, #073aff00 100%),
     radial-gradient(100% 100% at 50% 50%, #32CD32ff 1%, #073aff00 76%),
@@ -522,7 +522,7 @@ onUnmounted(() => {
       farthest-corner circle at var(--pointer-x) var(--pointer-y),
       hsla(120, 0%, 0%, 0.1) 12%,
       hsla(120, 0%, 0%, 0.15) 20%,
-      hsla(120, 0%, 0%, 0.25) 120%
+      hsla(120, 0%, 0%, 0.25) 55%
     );
   background-position:
     0 var(--background-y),
@@ -549,6 +549,8 @@ onUnmounted(() => {
 .pc-card.active .pc-shine {
   filter: brightness(0.85) contrast(1.5) saturate(0.5);
   animation: none;
+  -webkit-mask-image: var(--icon);
+  mask-image: var(--icon);
 }
 
 .pc-card:hover .pc-shine::before,
@@ -576,7 +578,7 @@ onUnmounted(() => {
     ),
     var(--grain);
   background-size:
-    250% 250%,
+    185% 185%,
     100% 100%,
     220px 220px;
   background-position:
@@ -616,7 +618,7 @@ onUnmounted(() => {
       farthest-corner circle at var(--pointer-x) var(--pointer-y),
       hsla(120, 0%, 0%, 0.1) 12%,
       hsla(120, 0%, 0%, 0.15) 20%,
-      hsla(120, 0%, 0%, 0.25) 120%
+      hsla(120, 0%, 0%, 0.25) 55%
     );
   background-position:
     0 var(--background-y),
@@ -624,7 +626,7 @@ onUnmounted(() => {
     center;
   background-size:
     200% 300%,
-    700% 700%,
+    520% 520%,
     100% 100%;
   mix-blend-mode: difference;
   filter: brightness(0.8) contrast(1.5);
@@ -634,9 +636,10 @@ onUnmounted(() => {
   transform: translate3d(0, 0, 1.1px);
   overflow: hidden;
   background-image: radial-gradient(
-    farthest-corner circle at var(--pointer-x) var(--pointer-y),
-    hsl(120, 25%, 80%) 12%,
-    hsla(120, 40%, 30%, 0.8) 90%
+    ellipse 44% 32% at var(--pointer-x) var(--pointer-y),
+    hsl(120, 25%, 80%) 0%,
+    hsla(120, 40%, 30%, 0.8) 72%,
+    transparent 100%
   );
   mix-blend-mode: overlay;
   filter: brightness(0.8) contrast(1.2);
@@ -658,7 +661,7 @@ onUnmounted(() => {
   bottom: auto;
   opacity: calc(1.75 - var(--pointer-from-center));
   object-fit: cover;
-  object-position: center;
+  object-position: center 18%;
 }
 
 .pc-avatar-content::before {
@@ -666,14 +669,15 @@ onUnmounted(() => {
   position: absolute;
   inset: 0;
   z-index: 1;
-  backdrop-filter: blur(30px);
-  mask: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0) 60%,
-    rgba(0, 0, 0, 1) 90%,
-    rgba(0, 0, 0, 1) 100%
-  );
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(8, 18, 10, 0.72) 0%,
+      rgba(8, 18, 10, 0.2) 28%,
+      rgba(8, 18, 10, 0.05) 52%,
+      rgba(8, 18, 10, 0.55) 78%,
+      rgba(8, 18, 10, 0.82) 100%
+    );
   pointer-events: none;
 }
 
@@ -686,12 +690,13 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(26, 47, 26, 0.3);
-  backdrop-filter: blur(30px);
-  border: 1px solid rgba(34, 139, 34, 0.3);
+  background: rgba(8, 18, 10, 0.88);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(144, 238, 144, 0.22);
   border-radius: 15px;
   padding: 12px 14px;
   pointer-events: auto;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
 }
 
 .pc-user-details {
@@ -725,28 +730,30 @@ onUnmounted(() => {
 
 .pc-handle {
   font-size: 14px;
-  font-weight: 500;
-  color: #90EE90;
+  font-weight: 600;
+  color: #e8f5e8;
   line-height: 1;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
 }
 
 .pc-status {
   font-size: 14px;
-  color: rgba(232, 245, 232, 0.8);
+  color: rgba(232, 245, 232, 0.92);
   line-height: 1;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
 }
 
 .pc-contact-btn {
-  border: 1px solid rgba(34, 139, 34, 0.4);
+  border: 1px solid rgba(144, 238, 144, 0.45);
   border-radius: 8px;
   padding: 8px 16px;
   font-size: 14px;
   font-weight: 600;
-  color: #90EE90;
+  color: #f0fdf0;
   cursor: pointer;
   transition: all 0.2s ease;
-  backdrop-filter: blur(10px);
-  background: rgba(34, 139, 34, 0.1);
+  background: rgba(34, 139, 34, 0.35);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
 }
 
 .pc-contact-btn:hover {
@@ -767,7 +774,6 @@ onUnmounted(() => {
     0.1px
   ) !important;
   z-index: 5;
-  mix-blend-mode: luminosity;
 }
 
 .pc-details {
@@ -776,18 +782,17 @@ onUnmounted(() => {
   top: 3em;
   display: flex;
   flex-direction: column;
+  padding-inline: 1rem;
 }
 
 .pc-details h3 {
-  font-weight: 600;
+  font-weight: 700;
   margin: 0;
   font-size: min(5svh, 3em);
-  margin: 0;
-  background-image: linear-gradient(to bottom, #90EE90, #32CD32);
-  background-size: 1em 1.5em;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  -webkit-background-clip: text;
+  color: #f0fdf0;
+  text-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.75),
+    0 1px 2px rgba(0, 0, 0, 0.9);
 }
 
 .pc-details p {
@@ -798,11 +803,10 @@ onUnmounted(() => {
   font-size: 16px;
   margin: 0 auto;
   width: min-content;
-  background-image: linear-gradient(to bottom, #90EE90, #228B22);
-  background-size: 1em 1.5em;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  -webkit-background-clip: text;
+  color: #d4f5d4;
+  text-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.75),
+    0 1px 2px rgba(0, 0, 0, 0.9);
 }
 
 @keyframes glow-bg {
