@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Icon } from '@iconify/vue'
 import SectionHeader from '@/components/SectionHeader.vue'
 import { profile } from '@/data/portfolio'
 
@@ -9,7 +10,7 @@ const contactLinks = [
     href: profile.github,
     value: 'github.com/leon-99',
     tone: 'github',
-    glyph: 'GH',
+    icon: 'mdi:github',
   },
   {
     label: 'LinkedIn',
@@ -17,7 +18,7 @@ const contactLinks = [
     href: profile.linkedin,
     value: 'linkedin.com/in/win-khant-aung',
     tone: 'linkedin',
-    glyph: 'in',
+    icon: 'mdi:linkedin',
   },
   {
     label: 'Email',
@@ -25,7 +26,7 @@ const contactLinks = [
     href: `mailto:${profile.email}`,
     value: profile.email,
     tone: 'email',
-    glyph: '@',
+    icon: 'mdi:email-outline',
   },
 ]
 </script>
@@ -49,7 +50,9 @@ const contactLinks = [
           :target="link.label === 'Email' ? undefined : '_blank'"
           :rel="link.label === 'Email' ? undefined : 'noopener noreferrer'"
         >
-          <span class="contact-glyph">{{ link.glyph }}</span>
+          <span class="contact-glyph" aria-hidden="true">
+            <Icon :icon="link.icon" class="contact-icon" />
+          </span>
           <h3>{{ link.label }}</h3>
           <p>{{ link.description }}</p>
           <span class="text-link">{{ link.value }}</span>

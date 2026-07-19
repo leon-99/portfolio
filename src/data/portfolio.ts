@@ -46,7 +46,7 @@ export const experiences = [
     achievements: [
       'Improved application performance by 40% through code optimization',
       'Successfully migrated 5 legacy projects to modern architecture',
-      'Led development of 3 major client projects from conception to deployment',
+      'Led development of 6 major client projects from conception to deployment',
     ],
   },
   {
