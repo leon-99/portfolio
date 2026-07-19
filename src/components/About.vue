@@ -57,7 +57,7 @@ onMounted(async () => {
     )
 
     const statValues = document.querySelectorAll('.about .stat-value')
-    const targetValues = [6, 30, 100]
+    const targetValues = [7, 30, 100]
     const suffixes = ['+', '+', '%']
 
     statValues.forEach((stat, index) => {
@@ -67,7 +67,7 @@ onMounted(async () => {
       gsap.to(
         {},
         {
-          duration: 2,
+          duration: 0.5,
           ease: 'power2.out',
           scrollTrigger: {
             trigger: '.about .objective-stats',

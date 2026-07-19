@@ -20,7 +20,7 @@ export const objective = {
     'Committed to continuous learning, clean code practices, and leveraging cutting-edge technologies to build impactful web applications.',
   ],
   stats: [
-    { value: '6+', label: 'Years experience' },
+    { value: '7+', label: 'Years experience' },
     { value: '30+', label: 'Projects completed' },
     { value: '100%', label: 'Client satisfaction' },
   ],
