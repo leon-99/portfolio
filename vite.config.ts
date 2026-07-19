@@ -4,8 +4,8 @@ import { fileURLToPath, URL } from 'node:url'
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
-  const siteUrl = env.VITE_SITE_URL?.replace(/\/$/, '') ?? ''
-  const ogImage = siteUrl ? `${siteUrl}/preview.png` : '/preview.png'
+  const siteUrl = (env.VITE_SITE_URL || 'https://winkhantaung.online').replace(/\/$/, '')
+  const ogImage = `${siteUrl}/preview.png`
 
   return {
     plugins: [
