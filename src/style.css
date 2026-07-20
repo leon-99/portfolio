@@ -961,6 +961,11 @@ main {
   border-color: rgba(74, 222, 128, 0.22);
 }
 
+.project-type[data-type='products'] {
+  color: var(--sky);
+  border-color: rgba(124, 184, 255, 0.28);
+}
+
 .project-main {
   flex: 1;
 }

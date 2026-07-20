@@ -10,6 +10,7 @@ const activeFilter = ref<Filter>('featured')
 
 const filters: { id: Filter; label: string }[] = [
   { id: 'featured', label: 'Featured' },
+  { id: 'products', label: 'Products' },
   { id: 'websites', label: 'Websites' },
   { id: 'packages', label: 'Packages' },
 ]
@@ -24,6 +25,7 @@ const filteredProjects = computed(() => {
 const categoryLabel: Record<ProjectCategory, string> = {
   websites: 'Website',
   packages: 'Package',
+  products: 'Product',
 }
 
 const packageLabel: Record<PackageType, string> = {
@@ -37,17 +39,21 @@ const packageIcon: Record<PackageType, string> = {
 }
 
 function projectType(project: Project): ProjectCategory | PackageType {
-  if (project.category === 'websites') return 'websites'
+  if (project.category === 'websites' || project.category === 'products') {
+    return project.category
+  }
   return project.packageType ?? 'npm'
 }
 
 function typeLabel(project: Project): string {
-  if (project.category === 'websites') return categoryLabel.websites
+  if (project.category === 'websites' || project.category === 'products') {
+    return categoryLabel[project.category]
+  }
   return packageLabel[project.packageType ?? 'npm']
 }
 
 function showTypeLabel(project: Project): boolean {
-  if (project.category === 'websites') return true
+  if (project.category === 'websites' || project.category === 'products') return true
   return project.packageType === 'laravel'
 }
 
@@ -67,7 +73,7 @@ function isNpmLink(project: Project): boolean {
       <SectionHeader
         index="02"
         title="Projects"
-        description="Selected work across npm packages, Laravel packages, and production web apps."
+        description="Selected work across products, npm packages, Laravel packages, and production web apps."
       />
 
       <div class="project-filters" role="tablist" aria-label="Project filters">

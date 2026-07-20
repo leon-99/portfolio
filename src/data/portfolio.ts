@@ -108,7 +108,7 @@ export const education = [
   },
 ]
 
-export type ProjectCategory = 'websites' | 'packages'
+export type ProjectCategory = 'websites' | 'packages' | 'products'
 export type PackageType = 'npm' | 'laravel'
 
 export interface Project {
@@ -162,13 +162,14 @@ export const projects: Project[] = [
     liveLabel: 'Package',
   },
   {
-    id: 'solar-system',
-    title: 'Solar System Explorer',
-    description: 'Interactive solar system visualization with educational content.',
-    category: 'websites',
+    id: 'zenith-hr',
+    title: 'Zenith HR',
+    description:
+      'People platform for attendance, leave, and payroll — connected workflows from clock-in to payslip, built for teams that outgrew spreadsheets.',
+    category: 'products',
     featured: true,
-    technologies: ['Vue.js', 'Tailwind CSS', 'JavaScript', '3D Animation'],
-    liveUrl: 'https://solar-system-leon.netlify.app/',
+    technologies: ['Vue.js', 'Node.js', 'TypeScript', 'PostgreSQL', 'HR Platform'],
+    liveUrl: 'https://zenith.winkhantaung.online/',
     liveLabel: 'Live demo',
   },
   {
