@@ -119,6 +119,7 @@ export interface Project {
   packageType?: PackageType
   featured: boolean
   technologies: string[]
+  iconUrl?: string
   liveUrl?: string
   liveLabel?: string
   codeUrl?: string
@@ -168,6 +169,7 @@ export const projects: Project[] = [
       'People platform for attendance, leave, and payroll — connected workflows from clock-in to payslip, built for teams that outgrew spreadsheets.',
     category: 'products',
     featured: true,
+    iconUrl: '/zenith-hr.svg',
     technologies: ['Vue.js', 'Node.js', 'TypeScript', 'PostgreSQL', 'HR Platform'],
     liveUrl: 'https://zenith.winkhantaung.online/',
     liveLabel: 'Live demo',

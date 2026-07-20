@@ -941,6 +941,14 @@ main {
   flex-shrink: 0;
 }
 
+.project-type-logo {
+  width: 1.35rem;
+  height: 1.35rem;
+  flex-shrink: 0;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
 .project-type--icon-only {
   padding: 0.2rem 0.35rem;
 }

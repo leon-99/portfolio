@@ -112,6 +112,12 @@ function isNpmLink(project: Project): boolean {
                   class="project-type-icon"
                   aria-hidden="true"
                 />
+                <img
+                  v-else-if="project.iconUrl"
+                  :src="project.iconUrl"
+                  alt=""
+                  class="project-type-logo"
+                />
                 <template v-if="showTypeLabel(project)">{{ typeLabel(project) }}</template>
               </span>
             </div>
