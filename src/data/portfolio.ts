@@ -165,7 +165,7 @@ export const projects: Project[] = [
     id: 'zenith-hr',
     title: 'Zenith HR',
     description:
-      'People platform for attendance, leave, and payroll — connected workflows from clock-in to payslip, built for teams that outgrew spreadsheets.',
+      'HR management system with live face verification for check-in — liveness and location checks stop buddy clock-ins. Leave, payroll, and attendance in one connected platform.',
     category: 'products',
     featured: true,
     technologies: ['Vue.js', 'Node.js', 'TypeScript', 'PostgreSQL', 'HR Platform'],
