@@ -101,7 +101,7 @@ button {
   justify-content: center;
   gap: 0.65rem;
   min-height: 2.375rem;
-  padding: 0.5rem 2.75rem 0.5rem 0.85rem;
+  padding: 0.5rem 0.85rem;
   background: var(--surface-raised);
   border-bottom: 1px solid var(--border-strong);
   font-size: 0.8125rem;
@@ -145,35 +145,10 @@ button {
   color: var(--accent-strong);
 }
 
-.announcement-bar__dismiss {
-  position: absolute;
-  right: 0.65rem;
-  top: 50%;
-  transform: translateY(-50%);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.75rem;
-  height: 1.75rem;
-  padding: 0;
-  border: 0;
-  border-radius: 6px;
-  background: transparent;
-  color: var(--text-faint);
-  transition:
-    color 0.15s ease,
-    background-color 0.15s ease;
-}
-
-.announcement-bar__dismiss:hover {
-  color: var(--text);
-  background: var(--surface-hover);
-}
-
 @media (max-width: 640px) {
   .announcement-bar {
     align-items: flex-start;
-    padding: 0.55rem 2.5rem 0.55rem 0.75rem;
+    padding: 0.55rem 0.75rem;
   }
 
   .announcement-bar__badge {
