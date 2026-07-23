@@ -127,6 +127,17 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: 'zenith-hr',
+    title: 'Zenith HR',
+    description:
+      'HR management system with live face verification for check-in — liveness and location checks stop buddy clock-ins. Leave, payroll, and attendance in one connected platform.',
+    category: 'products',
+    featured: true,
+    technologies: ['Vue.js', 'Node.js', 'TypeScript', 'PostgreSQL', 'HR Platform'],
+    liveUrl: 'https://zenith.winkhantaung.online/',
+    liveLabel: 'Live demo',
+  },
+  {
     id: 'leaseguard',
     title: 'Leaseguard',
     description:
@@ -160,17 +171,6 @@ export const projects: Project[] = [
     technologies: ['Node.js', 'JavaScript', 'CLI', 'Code Analysis', 'Vue.js'],
     liveUrl: 'https://www.npmjs.com/package/plato-vue',
     liveLabel: 'Package',
-  },
-  {
-    id: 'zenith-hr',
-    title: 'Zenith HR',
-    description:
-      'HR management system with live face verification for check-in — liveness and location checks stop buddy clock-ins. Leave, payroll, and attendance in one connected platform.',
-    category: 'products',
-    featured: true,
-    technologies: ['Vue.js', 'Node.js', 'TypeScript', 'PostgreSQL', 'HR Platform'],
-    liveUrl: 'https://zenith.winkhantaung.online/',
-    liveLabel: 'Live demo',
   },
   {
     id: 'oasify-postman',
