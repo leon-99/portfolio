@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import PageBackdrop from '@/components/PageBackdrop.vue'
+import AnnouncementBar from '@/components/AnnouncementBar.vue'
 import SiteDock from '@/components/SiteDock.vue'
 import Hero from '@/components/Hero.vue'
 import About from '@/components/About.vue'
@@ -12,6 +13,7 @@ import SiteFooter from '@/components/SiteFooter.vue'
 
 <template>
   <div class="app">
+    <AnnouncementBar />
     <PageBackdrop />
     <main>
       <Hero />

@@ -206,6 +206,24 @@ export const projects: Project[] = [
   },
 ]
 
+export interface SiteAnnouncement {
+  id: string
+  badge: string
+  title: string
+  message: string
+  href: string
+  linkLabel: string
+}
+
+export const siteAnnouncement: SiteAnnouncement = {
+  id: 'zenith-hr',
+  badge: 'New',
+  title: 'Zenith HR',
+  message: '— The HR management system with live face verification for check-in.',
+  href: 'https://zenith.winkhantaung.online/',
+  linkLabel: 'Try live demo',
+}
+
 export const skillCategories = [
   {
     title: 'Backend',
