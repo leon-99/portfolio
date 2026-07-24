@@ -138,6 +138,17 @@ export const projects: Project[] = [
     liveLabel: 'Live demo',
   },
   {
+    id: 'vela',
+    title: 'Vela',
+    description:
+      'Business operations platform — orders, stock, and cash in one flow. Sales through production, delivery, and finance stay connected so teams stop chasing updates in chat and spreadsheets.',
+    category: 'products',
+    featured: true,
+    technologies: ['React.js', 'Node.js', 'TypeScript', 'PostgreSQL', 'ERP'],
+    liveUrl: 'https://vela.winkhantaung.online/',
+    liveLabel: 'Live demo',
+  },
+  {
     id: 'leaseguard',
     title: 'Leaseguard',
     description:
